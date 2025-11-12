@@ -112,3 +112,57 @@ sequenceDiagram
     S->>M: Forward STATUS packet
     Note over D,M: Remote connection established
 ```
+
+## Bluetooth Low Energy Specifications
+
+### Services and Characteristics
+The vibrator exposes the following BLE services and characteristics:
+
+| ID  | Type  | Description  |
+|---------------------------------------|-----------------|---|
+| ec2e0883-782d-433b-9a0c-6d5df5565410  | Service         |   |
+| c2433dd7-137e-4e82-845e-a40f70dc4a8d  | Characteristic  | Can be used to write data to the vibrator  |
+| c2433dd7-137e-4e82-845e-a40f70dc4a8e  | Characteristic  | Can be used to receive notifications from the vibrator  |
+
+## Packets
+
+### STATUS
+The STATUS packet is sent by the vibrator to inform the app about its current state
+
+```json
+{
+    "intensity": number,
+    "battery": number,
+    "isCharging": boolean,
+    "isBluetoothConnected": boolean,
+    "isWifiConnected": boolean,
+    "ipAddress": string | null,
+    "macAddress": string,
+    "version": string,
+    "deviceId": string,
+    "serverAddress": string | null,
+    "transport": "BLE" | "WIFI" | "REMOTE"
+}
+```
+
+### WI-FI Credentials
+The WIFI_CREDENTIALS packet is used to make the vibrator connect to the WI-FI by providing the credentials
+
+```json
+{
+    "requestType": "WIFI_CREDENTIALS",
+    "ssid": "string",
+    "password": "string"
+}
+```
+
+### Transport Layer Switch
+The SWITCH_TRANSPORT packet is used to make the device switch transport mode
+
+```json
+{
+    "requestType": "SWITCH_TRANSPORT"
+    "transport": "BLE" | "WIFI" | "REMOTE",
+    "serverAddress": "string"
+}
+```
