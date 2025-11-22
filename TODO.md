@@ -6,15 +6,20 @@
 * Connect via Wi-Fi
 * Connect remotely
 
-### Hardware
+### Electrical Hardware
 
 * Vibrate
 * Recharge
 * ON/OFF switch
-* 3D structure for the chassis
 * Board design
 * Safety evaluations
 * RGB LED (status)
+
+### Chassis
+
+* 3D Structure for the chassis
+* 3D-printing of the mold
+* two-part silicone to make the vibrator itself
 
 ### Marketing
 
